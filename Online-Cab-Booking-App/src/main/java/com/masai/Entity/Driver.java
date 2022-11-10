@@ -1,4 +1,4 @@
-package com.masai.model;
+package com.masai.Entity;
 
 import java.util.List;
 
