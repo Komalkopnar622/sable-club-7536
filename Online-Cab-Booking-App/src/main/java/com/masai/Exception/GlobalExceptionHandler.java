@@ -10,8 +10,8 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	@ExceptionHandler(DriverNotFoundException.class)
-	public ResponseEntity<MyErrorDetail> employeeExceptionHandler(DriverNotFoundException se, WebRequest req) {
+	@ExceptionHandler(BookingNotFoundException.class)
+	public ResponseEntity<MyErrorDetail> employeeExceptionHandler(BookingNotFoundException se, WebRequest req) {
 		
 		MyErrorDetail err= new MyErrorDetail();
 		err.setTimestamp(LocalDateTime.now());
