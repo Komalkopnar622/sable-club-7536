@@ -1,13 +1,15 @@
-package com.masai.model;
+package com.masai.Entity;
 
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@MappedSuperclass
 public class User {
 
 	@Column(unique = true)
