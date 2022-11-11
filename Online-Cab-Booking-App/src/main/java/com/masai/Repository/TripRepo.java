@@ -1,5 +1,10 @@
 package com.masai.Repository;
 
-public class TripRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.masai.Entity.TripBooking;
+
+public interface TripRepo extends JpaRepository<TripBooking, Integer> {
+	
 
 }
