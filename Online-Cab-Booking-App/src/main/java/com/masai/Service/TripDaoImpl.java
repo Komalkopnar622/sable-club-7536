@@ -1,6 +1,7 @@
 package com.masai.Service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import com.masai.Entity.Driver;
 import com.masai.Entity.TripBooking;
 import com.masai.Exception.BookingNotFoundException;
 import com.masai.Exception.DriverNotFoundException;
-import com.masai.Repository.CustomerRepo;
+import com.masai.Repository.CustomerDao;
 import com.masai.Repository.DriverRepo;
 import com.masai.Repository.TripRepo;
 
@@ -22,7 +23,7 @@ public class TripDaoImpl implements TripService{
 	TripRepo tRepo;
 	
 	@Autowired
-	CustomerRepo cRepo;
+	CustomerDao cRepo;
 	
 	@Autowired
 	DriverRepo dRepo;

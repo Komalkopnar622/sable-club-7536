@@ -8,10 +8,13 @@ import com.masai.Exception.Nullexception;
 
 public interface CustomerService {
 
-    public Customer createCustomer(Customer customer) ;
-//    public Customer updateCustomer(Customer customer) throws CustomerException;
-//    public String deleteCustomer(Integer customerId) throws CustomerException;
-//    public Customer ViewCustomer(Integer customerId) throws CustomerException;
-//    public List<Customer> ViewCustomers() throws Nullexception;
-//    public Customer vaildCustomer(String Email,String Password) throws CustomerException;
+	public Customer saveCustomer(Customer customer);
+	public Customer findCustomer(Integer id)throws CustomerException;
+	
+//	public Customer updateCustomer(Customer customer)throws CustomerException;
+
+	
+//	public String deleteCustomer(Integer id)throws CustomerException;
+//	public List<Customer> allCustomer()throws Nullexception;
+//	public Customer vaildCustomer(String Email,String Password)throws CustomerException;
 }
