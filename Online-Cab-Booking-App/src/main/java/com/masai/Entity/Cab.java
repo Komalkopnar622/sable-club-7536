@@ -67,8 +67,5 @@ public class Cab {
 	public String toString() {
 		return "Cab [cabId=" + cabId + ", carType=" + carType + ", ratePerKm=" + ratePerKm + ", driver=" + driver + "]";
 	}
-	
-	
-	
 
 }
