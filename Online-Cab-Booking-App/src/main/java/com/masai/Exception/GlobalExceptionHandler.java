@@ -10,6 +10,13 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
+	@ExceptionHandler(InvalidId.class)
+	public ResponseEntity<MyErrorDetail> myExpHandler1(InvalidId ie,WebRequest wr)
+	{
+		MyErrorDetail err= new MyErrorDetail(LocalDateTime.now(),ie.getMessage(),wr.getDescription(false));
+	    return new ResponseEntity<MyErrorDetail>(err,HttpStatus.BAD_REQUEST);
+	}
+	
 	@ExceptionHandler(BookingNotFoundException.class)
 	public ResponseEntity<MyErrorDetail> employeeExceptionHandler(BookingNotFoundException se, WebRequest req) {
 		

@@ -21,7 +21,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Data
@@ -35,7 +34,7 @@ public abstract class Abstractuser implements Serializable {
 	@EqualsAndHashCode.Include
 	private Integer userId;
 	
-	@Size(min = 3, max = 255, message = "{nameRange}")
+	@Size(min = 3, max = 35, message = "{nameRange}")
 	@NotNull(message = "{notNull}")
 	private String Username;
 	

@@ -4,26 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
-public class Customer extends User{
-   
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer customerId;
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@PrimaryKeyJoinColumn(name="customerId")
+public class Customer extends Abstractuser {
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + "]";
-	}
-
-	public Integer getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
 	
+	private boolean journey_status;
 	
 }
