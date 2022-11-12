@@ -17,13 +17,14 @@ import com.masai.Exception.UserAlreadyExistWithuserId;
 import com.masai.Repository.AdminRepo;
 import com.masai.Repository.CustomerDao;
 import com.masai.Repository.DriverDao;
+import com.masai.Repository.SessionDao;
 
 import net.bytebuddy.utility.RandomString;
 
 @Service
 public class UserLogInImpl implements UserLogIn {
 	@Autowired
-	private AdminDao adminDao;
+	private AdminRepo adminDao;
 
 	@Autowired
 
