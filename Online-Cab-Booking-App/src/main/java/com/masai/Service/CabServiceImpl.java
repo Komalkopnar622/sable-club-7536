@@ -2,17 +2,16 @@ package com.masai.Service;
 
 import java.util.*;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.Entity.Cab;
 
 import com.masai.Entity.Driver;
-import com.masai.Entity.TripBooking;
 import com.masai.Exception.NotFoundException;
-import com.masai.Exception.BookingNotFoundException;
-import com.masai.Exception.InvalidId;
-import com.masai.Repository.CabRepo;
+import com.masai.Repository.CabDao;
 import com.masai.Repository.DriverDao;
 
 
@@ -21,7 +20,7 @@ import com.masai.Repository.DriverDao;
 public class CabServiceImpl implements CabService {
 
 	@Autowired
-	private CabRepo cDao;
+	private CabDao cDao;
 	
 
 	@Autowired

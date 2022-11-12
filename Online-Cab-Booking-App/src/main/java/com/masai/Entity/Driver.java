@@ -26,7 +26,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @PrimaryKeyJoinColumn(name="driverId")
-public class Driver {
+public class Driver extends Abstractuser{
 	
 	@Min(value=1, message="id should be more than 1")
 	private Integer licenseNo;
@@ -94,12 +94,10 @@ public class Driver {
 	}
 
 
-	public Address getAddress() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 
+	
 	
 
 }

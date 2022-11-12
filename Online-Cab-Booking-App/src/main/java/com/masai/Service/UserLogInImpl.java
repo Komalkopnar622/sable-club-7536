@@ -1,24 +1,22 @@
 package com.masai.Service;
 
 import java.time.LocalDateTime;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.masai.Entity.Admin;
 import com.masai.Entity.CurrentUserSession;
 import com.masai.Entity.Customer;
 import com.masai.Entity.CustomerDTO;
-import com.masai.Entity.Driver;
-
 import com.masai.Exception.AdminExceptions;
 import com.masai.Exception.InvalidPasswordException;
 import com.masai.Exception.NotFoundException;
 import com.masai.Exception.UserAlreadyExistWithuserId;
 import com.masai.Repository.AdminRepo;
-import com.masai.Repository.CustomerRepo;
-import com.masai.Repository.DriverRepo;
+import com.masai.Repository.CustomerDao;
+import com.masai.Repository.DriverDao;
 import com.masai.Repository.SessionRepo;
 
 import net.bytebuddy.utility.RandomString;
@@ -29,10 +27,10 @@ public class UserLogInImpl implements UserLogIn {
 	private AdminRepo adminRepo;
 
 	@Autowired
-	private DriverRepo driverRepo;
+	private DriverDao driverRepo;
 
 	@Autowired
-	private CustomerRepo customerRepo;
+	private CustomerDao customerRepo;
 
 	@Autowired
 	private SessionRepo sessionRepo;
