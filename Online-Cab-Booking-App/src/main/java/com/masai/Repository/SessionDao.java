@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.masai.Entity.CurrentUserSession;
 
+
 @Repository
-public interface SessionRepo extends JpaRepository<CurrentUserSession, Integer>{
+public interface SessionDao extends JpaRepository<CurrentUserSession, Integer>{
 	
 	public Optional<CurrentUserSession> findById(Integer userId);
 	

@@ -1,5 +1,6 @@
 package com.masai.Exception;
 
+
 public class InvalidId extends RuntimeException {
 	public InvalidId() {
 		super();
