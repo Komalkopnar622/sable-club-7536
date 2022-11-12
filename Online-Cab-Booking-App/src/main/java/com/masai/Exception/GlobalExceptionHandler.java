@@ -74,6 +74,18 @@ public class GlobalExceptionHandler {
 	
 	
 	
+	@ExceptionHandler(InvalidId.class)
+	public ResponseEntity<MyErrorDetail> employeeExceptionHandler(InvalidId se, WebRequest req) {
+		
+		MyErrorDetail err= new MyErrorDetail();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(se.getMessage());
+		err.setDescription(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetail>(err,HttpStatus.BAD_REQUEST);
+	}
+	
+	
 	@ExceptionHandler(DriverNotFoundException.class)
 	public ResponseEntity<MyErrorDetail> employeeExceptionHandler(DriverNotFoundException se, WebRequest req) {
 		

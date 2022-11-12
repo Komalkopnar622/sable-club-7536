@@ -7,29 +7,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Cab {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer cabId;
 	private String carType;
-	private float ratePerKm;
-	
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "cab")
+	private Integer ratePerKm;
+
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="cab",orphanRemoval = true)
+	@JsonIgnore
+
 	private Driver driver;
-
-	public Cab() {
-		super();
-	}
-
-	public Cab(Integer cabId, String carType, float ratePerKm, Driver driver) {
-		super();
-		this.cabId = cabId;
-		this.carType = carType;
-		this.ratePerKm = ratePerKm;
-		this.driver = driver;
-	}
 
 	public Integer getCabId() {
 		return cabId;
@@ -47,11 +47,11 @@ public class Cab {
 		this.carType = carType;
 	}
 
-	public float getRatePerKm() {
+	public Integer getRatePerKm() {
 		return ratePerKm;
 	}
 
-	public void setRatePerKm(float ratePerKm) {
+	public void setRatePerKm(Integer ratePerKm) {
 		this.ratePerKm = ratePerKm;
 	}
 
@@ -63,9 +63,6 @@ public class Cab {
 		this.driver = driver;
 	}
 
-	@Override
-	public String toString() {
-		return "Cab [cabId=" + cabId + ", carType=" + carType + ", ratePerKm=" + ratePerKm + ", driver=" + driver + "]";
-	}
+	
 
 }

@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import com.masai.Entity.Driver;
+
+import com.masai.Entity.Cab;
 
 @Repository
-public interface DriverRepo extends JpaRepository<Driver, Integer>{
+public interface CabDao extends JpaRepository<Cab, Integer>{
 	
-	@Query("from Driver d where d.available=true")
-	public List<Driver> findByAvailable();
-	
+	@Query("select distinct carType from Cab")
+	public List<String> viewCarType();
 
 }

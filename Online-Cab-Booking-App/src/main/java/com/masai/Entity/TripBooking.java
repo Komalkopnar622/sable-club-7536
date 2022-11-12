@@ -1,7 +1,6 @@
 package com.masai.Entity;
 
-import java.time.LocalDateTime;
-
+import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,161 +8,119 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.ToString;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class TripBooking {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer TripBookingId;
-	
-	@NonNull
-	private Integer CustomerId;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="driverId",referencedColumnName = "driverID")
-	private Driver driver;
-	private String fromLocation;
-	private String toLocation;
-	private LocalDateTime fromDateTime;
-	private LocalDateTime toDateTime;
-	private boolean status;
-	private float distanceInKm;
-	private float bill;
-	
-	
-	public TripBooking() {
-		super();
-	}
+	 @Id
+	   @GeneratedValue(strategy = GenerationType.AUTO)
+	   private Integer TripBookingId;
+	   @NonNull
+	   private Integer CustomerId; 
+	   
+	   @ManyToOne(cascade=CascadeType.ALL)
+	   @JoinColumn(name="driver_id",referencedColumnName = "driverID")
+	   private Driver driver;
 
-
-	public TripBooking(Integer tripBookingId, Integer customerId, Driver driver, String fromLocation, String toLocation,
-			LocalDateTime fromDateTime, LocalDateTime toDateTime, boolean status, float distanceInKm, float bill) {
-		super();
-		TripBookingId = tripBookingId;
-		CustomerId = customerId;
-		this.driver = driver;
-		this.fromLocation = fromLocation;
-		this.toLocation = toLocation;
-		this.fromDateTime = fromDateTime;
-		this.toDateTime = toDateTime;
-		this.status = status;
-		this.distanceInKm = distanceInKm;
-		this.bill = bill;
-	}
-
-
+	   @NotNull(message = "{From Location notNull}")
+	   private String From_location;
+	   
+	   @NotNull(message = "{To Loccation notNull}")
+	   private String To_location;
+	   
+	   
+	    @FutureOrPresent(message = "{futOrPres}")
+	    @NotNull(message = "{data not null}")
+	    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     private LocalDate Fromdate_time;
+	    
+	    
+	    @FutureOrPresent(message = "{futOrPres}")
+	    @NotNull(message = "{data not null}")
+	    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     private LocalDate Todate_time;
+	   
+     private Integer km;
+     private Integer  Totalamount;
+     private Boolean Payment;
 	public Integer getTripBookingId() {
 		return TripBookingId;
 	}
-
-
 	public void setTripBookingId(Integer tripBookingId) {
 		TripBookingId = tripBookingId;
 	}
-
-
 	public Integer getCustomerId() {
 		return CustomerId;
 	}
-
-
 	public void setCustomerId(Integer customerId) {
 		CustomerId = customerId;
 	}
-
-
 	public Driver getDriver() {
 		return driver;
 	}
-
-
 	public void setDriver(Driver driver) {
 		this.driver = driver;
 	}
-
-
-	public String getFromLocation() {
-		return fromLocation;
+	public String getFrom_location() {
+		return From_location;
 	}
-
-
-	public void setFromLocation(String fromLocation) {
-		this.fromLocation = fromLocation;
+	public void setFrom_location(String from_location) {
+		From_location = from_location;
 	}
-
-
-	public String getToLocation() {
-		return toLocation;
+	public String getTo_location() {
+		return To_location;
 	}
-
-
-	public void setToLocation(String toLocation) {
-		this.toLocation = toLocation;
+	public void setTo_location(String to_location) {
+		To_location = to_location;
 	}
-
-
-	public LocalDateTime getFromDateTime() {
-		return fromDateTime;
+	public LocalDate getFromdate_time() {
+		return Fromdate_time;
 	}
-
-
-	public void setFromDateTime(LocalDateTime fromDateTime) {
-		this.fromDateTime = fromDateTime;
+	public void setFromdate_time(LocalDate fromdate_time) {
+		Fromdate_time = fromdate_time;
 	}
-
-
-	public LocalDateTime getToDateTime() {
-		return toDateTime;
+	public LocalDate getTodate_time() {
+		return Todate_time;
 	}
-
-
-	public void setToDateTime(LocalDateTime toDateTime) {
-		this.toDateTime = toDateTime;
+	public void setTodate_time(LocalDate todate_time) {
+		Todate_time = todate_time;
 	}
-
-
-	public boolean isStatus() {
-		return status;
+	public Integer getKm() {
+		return km;
 	}
-
-
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setKm(Integer km) {
+		this.km = km;
 	}
-
-
-	public float getDistanceInKm() {
-		return distanceInKm;
+	public Integer getTotalamount() {
+		return Totalamount;
 	}
-
-
-	public void setDistanceInKm(float distanceInKm) {
-		this.distanceInKm = distanceInKm;
+	public void setTotalamount(Integer totalamount) {
+		Totalamount = totalamount;
 	}
-
-
-	public float getBill() {
-		return bill;
+	public Boolean getPayment() {
+		return Payment;
 	}
-
-
-	public void setBill(float bill) {
-		this.bill = bill;
-	}
-
-
-	@Override
-	public String toString() {
-		return "TripBooking [TripBookingId=" + TripBookingId + ", CustomerId=" + CustomerId + ", driver=" + driver
-				+ ", fromLocation=" + fromLocation + ", toLocation=" + toLocation + ", fromDateTime=" + fromDateTime
-				+ ", toDateTime=" + toDateTime + ", status=" + status + ", distanceInKm=" + distanceInKm + ", bill="
-				+ bill + "]";
+	public void setPayment(Boolean payment) {
+		Payment = payment;
 	}
 	
 	
-	
+    
 
 }

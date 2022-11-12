@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import com.masai.Entity.Customer;
 import com.masai.Exception.CustomerException;
 import com.masai.Exception.Nullexception;
-import com.masai.Repository.CustomerRepo;
+import com.masai.Repository.CustomerDao;
 
 @Service
 public class CustomerServiceImple implements CustomerService{
 
 	@Autowired
-	private CustomerRepo cRepo;
+	private CustomerDao cRepo;
 	
 	@Override
 	public Customer createCustomer(Customer customer) {
