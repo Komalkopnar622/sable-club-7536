@@ -2,100 +2,104 @@ package com.masai.Entity;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@PrimaryKeyJoinColumn(name="driverId")
 public class Driver {
 	
-	@Id
-	private int driverId;
-	private String licenceNo;
-	private float rating;
+	@Min(value=1, message="id should be more than 1")
+	private Integer licenseNo;
+	@Min(value=1, message="id should be more than 1")
+	private Double rating;
 	private Boolean available;
-	
-	
-	@OneToOne(cascade = CascadeType.ALL)
+
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="cabId")
 	private Cab cab;
-	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "driver")
+
+
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "driver",orphanRemoval = true)
+	@JsonIgnore
 	private List<TripBooking> tripBooking;
 
-	public Driver() {
-		super();
+
+	public Integer getLicenseNo() {
+		return licenseNo;
 	}
 
-	public Driver(int driverId, String licenceNo, float rating, Boolean available, Cab cab,
-			List<TripBooking> tripBooking) {
-		super();
-		this.driverId = driverId;
-		this.licenceNo = licenceNo;
-		this.rating = rating;
-		this.available = available;
-		this.cab = cab;
-		this.tripBooking = tripBooking;
+
+	public void setLicenseNo(Integer licenseNo) {
+		this.licenseNo = licenseNo;
 	}
 
-	public int getDriverId() {
-		return driverId;
-	}
 
-	public void setDriverId(int driverId) {
-		this.driverId = driverId;
-	}
-
-	public String getLicenceNo() {
-		return licenceNo;
-	}
-
-	public void setLicenceNo(String licenceNo) {
-		this.licenceNo = licenceNo;
-	}
-
-	public float getRating() {
+	public Double getRating() {
 		return rating;
 	}
 
-	public void setRating(float rating) {
+
+	public void setRating(Double rating) {
 		this.rating = rating;
 	}
+
 
 	public Boolean getAvailable() {
 		return available;
 	}
 
+
 	public void setAvailable(Boolean available) {
 		this.available = available;
 	}
+
 
 	public Cab getCab() {
 		return cab;
 	}
 
+
 	public void setCab(Cab cab) {
 		this.cab = cab;
 	}
+
 
 	public List<TripBooking> getTripBooking() {
 		return tripBooking;
 	}
 
+
 	public void setTripBooking(List<TripBooking> tripBooking) {
 		this.tripBooking = tripBooking;
 	}
 
-	@Override
-	public String toString() {
-		return "Driver [driverId=" + driverId + ", licenceNo=" + licenceNo + ", rating=" + rating + ", available="
-				+ available + ", cab=" + cab + ", tripBooking=" + tripBooking + "]";
+
+	public Address getAddress() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	
+
+
 	
 
 }
