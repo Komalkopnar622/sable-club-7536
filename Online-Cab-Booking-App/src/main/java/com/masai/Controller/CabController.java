@@ -27,8 +27,8 @@ public class CabController {
 	@Autowired
 	private CabService cService;
 	
-	@PostMapping("/insertcabs")
-	public ResponseEntity<Cab> insertDriver(@Valid @RequestBody Cab cab){
+	@PostMapping("/icabs")
+	public ResponseEntity<Cab> insertCab(@Valid @RequestBody Cab cab){
 		Cab addedCab=cService.insertCab(cab);
 		return new ResponseEntity<Cab>(addedCab,HttpStatus.ACCEPTED);
 				
