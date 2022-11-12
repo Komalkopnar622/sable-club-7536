@@ -1,6 +1,8 @@
 package com.masai.Service;
 
 import java.time.LocalDate;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,18 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.Entity.Admin;
-import com.masai.Entity.Cab;
 import com.masai.Entity.Customer;
-import com.masai.Entity.Driver;
 import com.masai.Entity.TripBooking;
 import com.masai.Exception.AdminExceptions;
-import com.masai.Exception.NotFoundException;
 import com.masai.Repository.AdminRepo;
-import com.masai.Repository.CabRepo;
-import com.masai.Repository.CustomerRepo;
-import com.masai.Repository.DriverRepo;
-
-import com.masai.Repository.TripRepo;
+import com.masai.Repository.CabDao;
+import com.masai.Repository.CustomerDao;
+import com.masai.Repository.DriverDao;
+import com.masai.Repository.TripDao;
 
 
 @Service
@@ -28,16 +26,16 @@ public class AdminServiceImp implements AdminService {
 	private AdminRepo adminRepo;
 
 	@Autowired
-	private CustomerRepo customerRepo;
+	private CustomerDao customerRepo;
 	
 	@Autowired 
-	private DriverRepo driverRepo;
+	private DriverDao driverRepo;
 	
 	@Autowired
-	private CabRepo cabDao;
+	private CabDao cabDao;
 	
 	@Autowired
-	private TripRepo tripRepo;
+	private TripDao tripRepo;
 
 	@Override
 	public Admin saveAdmin(Admin admin) throws AdminExceptions {

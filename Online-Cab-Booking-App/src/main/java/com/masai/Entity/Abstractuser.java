@@ -56,5 +56,59 @@ public abstract class Abstractuser implements Serializable {
 	@Email
 	@NotNull(message = "{notNull}")
 	private String Email;
+	
+	
+	
+	
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUsername() {
+		return Username;
+	}
+
+	public void setUsername(String username) {
+		Username = username;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+	public String getMobile() {
+		return Mobile;
+	}
+
+	public void setMobile(String mobile) {
+		Mobile = mobile;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+	
+	
 
 }
