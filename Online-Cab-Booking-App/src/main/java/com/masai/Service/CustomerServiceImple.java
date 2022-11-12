@@ -23,35 +23,35 @@ public class CustomerServiceImple implements CustomerService{
 		return savedCustomer;
 	}
 
-//	@Override
-//	public Customer updateCustomer(Customer customer) throws CustomerException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String deleteCustomer(Integer customerId) throws CustomerException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Customer ViewCustomer(Integer customerId) throws CustomerException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public List<Customer> ViewCustomers() throws Nullexception {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Customer vaildCustomer(String Email, String Password) throws CustomerException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public Customer updateCustomer(Customer customer) throws CustomerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteCustomer(Integer customerId) throws CustomerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer ViewCustomer(Integer customerId) throws CustomerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> ViewCustomers() throws Nullexception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer vaildCustomer(String Email, String Password) throws CustomerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }
