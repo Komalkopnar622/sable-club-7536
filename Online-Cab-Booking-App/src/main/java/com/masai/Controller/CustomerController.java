@@ -24,22 +24,6 @@ public class CustomerController {
 	@Autowired
 	private CustomerService service;
 	
-	@GetMapping("/customer/{Id}")
-	public Customer getCustomer(@PathVariable("Id") Integer id)
-	{    
-		return service.findCustomer(id);
-	}
-	@GetMapping("/customers")
-	public List<Customer> getAllCustomer()
-	{    
-		return service.allCustomer();
-	}
-	@GetMapping("/customer/{Email}/{Password}")
-	public Customer getAllCustomer(@PathVariable("Email") String Email,@PathVariable("Password")String Password)
-	{    
-		return service.vaildCustomer(Email, Password);
-	}
-	
 	@PostMapping(value = "/save",consumes = "application/json")
 	public Customer SaveStudent(@Valid @RequestBody Customer customer)
 	{	System.out.println(customer);
@@ -56,5 +40,23 @@ public class CustomerController {
 		
     	return service.deleteCustomer(id);
 	}
+    
+	@GetMapping("/customer/{Id}")
+	public Customer getCustomer(@PathVariable("Id") Integer id)
+	{    
+		return service.findCustomer(id);
+	}
+	@GetMapping("/customers")
+	public List<Customer> getAllCustomer()
+	{    
+		return service.allCustomer();
+	}
+	@GetMapping("/customer/{Email}/{Password}")
+	public Customer getAllCustomer(@PathVariable("Email") String Email,@PathVariable("Password")String Password)
+	{    
+		return service.vaildCustomer(Email, Password);
+	}
+	
+	
 }
 
