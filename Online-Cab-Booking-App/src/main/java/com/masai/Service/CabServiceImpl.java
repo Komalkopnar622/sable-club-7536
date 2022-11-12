@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.Entity.Cab;
-<<<<<<< HEAD
+
 import com.masai.Entity.Driver;
 import com.masai.Entity.TripBooking;
 import com.masai.Exception.NotFoundException;
@@ -14,8 +14,7 @@ import com.masai.Exception.BookingNotFoundException;
 import com.masai.Exception.InvalidId;
 import com.masai.Repository.CabRepo;
 import com.masai.Repository.DriverDao;
-=======
->>>>>>> 15d75967fd7a9d51da07a3d6f72dbd8dcfdfc686
+
 
 
 @Service("CabService")
