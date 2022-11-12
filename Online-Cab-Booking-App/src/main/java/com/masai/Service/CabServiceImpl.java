@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.Entity.Cab;
+import com.masai.Entity.Driver;
+import com.masai.Exception.NotFoundException;
+import com.masai.Repository.CabDao;
+import com.masai.Repository.DriverDao;
 
 
 @Service("CabService")
