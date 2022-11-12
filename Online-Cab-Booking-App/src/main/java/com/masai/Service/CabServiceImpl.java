@@ -6,13 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.Entity.Cab;
-import com.masai.Entity.Driver;
-import com.masai.Exception.NotFoundException;
-import com.masai.Exception.InvalidId;
-import com.masai.Repository.CabDao;
-import com.masai.Repository.DriverDao;
 
-import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
 
 @Service("CabService")
 public class CabServiceImpl implements CabService {
