@@ -65,7 +65,7 @@ public class CabController {
      }
 	
 	@DeleteMapping("/cabs/{id}")
-	public ResponseEntity<Cab> deleteStudentByRollHandler(@PathVariable("id") Integer id) throws NotFoundException{
+	public ResponseEntity<Cab> deleteCabByIdHandler(@PathVariable("id") Integer id) throws NotFoundException{
 		
 		Cab deletedCab= cService.deleteCab(id);
 				
