@@ -24,25 +24,24 @@ import net.bytebuddy.utility.RandomString;
 @Service
 public class UserLogInImpl implements UserLogIn {
 	@Autowired
-	private AdminRepo adminRepo;
+	private AdminRepo adminDao;
 
 	@Autowired
-	private DriverDao driverRepo;
+	private DriverDao driverDao;
 
 	@Autowired
-	private CustomerDao customerRepo;
+	private CustomerDao customerDao;
 
 	@Autowired
-	private SessionRepo sessionRepo;
+	private SessionRepo sessionDao;
 
 	@Override
 	public String logIntoAccount(CustomerDTO userDto) {
-		Optional<Customer> opt_customer = customerRepo.findById(userDto.getUserId());
+		Optional<Customer> opt_customer = customerDao.findById(userDto.getUserId());
 
 		Integer userId = opt_customer.get().getCustomerId();
-//				.getUserId();
 
-		Optional<CurrentUserSession> currentUserOptional = sessionRepo.findById(userId);
+		Optional<CurrentUserSession> currentUserOptional = sessionDao.findById(userId);
 
 		if (!opt_customer.isPresent()) {
 			throw new AdminExceptions("user not found");
@@ -54,7 +53,7 @@ public class UserLogInImpl implements UserLogIn {
 			String key = RandomString.make(6);
 			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getCustomerId(), key,
 					LocalDateTime.now());
-			sessionRepo.save(currentUserSession);
+			sessionDao.save(currentUserSession);
 
 			return currentUserSession.toString();
 		} else {
@@ -65,14 +64,14 @@ public class UserLogInImpl implements UserLogIn {
 
 	@Override
 	public String logOutFromAccount(String key) {
-		Optional<CurrentUserSession> currentUserOptional = sessionRepo.findByUuid(key);
+		Optional<CurrentUserSession> currentUserOptional = sessionDao.findByUuid(key);
 
 		if (!currentUserOptional.isPresent()) {
 			throw new NotFoundException("User is not logged in with this number");
 		}
 
 		CurrentUserSession currentUserSession = currentUserOptional.get();
-		sessionRepo.delete(currentUserSession);
+		sessionDao.delete(currentUserSession);
 
 		return "Logged Out...";
 	}
