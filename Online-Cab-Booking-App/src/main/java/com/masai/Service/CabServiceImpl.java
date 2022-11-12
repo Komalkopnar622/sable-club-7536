@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.masai.Entity.Cab;
+
 @Service("CabService")
 public class CabServiceImpl implements CabService {
 
