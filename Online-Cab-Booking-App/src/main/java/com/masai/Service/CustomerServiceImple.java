@@ -5,33 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import com.masai.repository.AddressDao;
-import com.masai.repository.CustomerDao;
-import com.masai.entity.Address;
-import com.masai.entity.Customer;
-import com.masai.exception.InvalidId;
-import com.masai.exception.Nullexception;
-
-=======
+import com.masai.Entity.Address;
 import com.masai.Entity.Customer;
-import com.masai.Exception.CustomerException;
+import com.masai.Exception.InvalidId;
 import com.masai.Exception.Nullexception;
+import com.masai.Repository.AddressDao;
 import com.masai.Repository.CustomerDao;
->>>>>>> 005e10d4ce93a296c1f0785ef48ed196e3bb538c
+
 
 @Service
 public class CustomerServiceImple implements CustomerService {
  
 	@Autowired
-<<<<<<< HEAD
 	private CustomerDao cdao;
     @Autowired
     private AddressDao Adao;
-	
-=======
-	private CustomerDao cRepo;
->>>>>>> 005e10d4ce93a296c1f0785ef48ed196e3bb538c
+
 	
 	@Override
     	public Customer saveCustomer(Customer customer) {
@@ -54,7 +43,7 @@ public class CustomerServiceImple implements CustomerService {
 		
 		Customer c1=cdao.findById(id).orElseThrow(() -> new InvalidId("Customer with ID "+id+" does not exit.."));
 		
-	Integer aid=	c1.getAddress().getId();
+	Integer aid=c1.getAddress().getId();
 		
 		c1.setAddress(customer.getAddress());
 		c1.setEmail(customer.getEmail());
