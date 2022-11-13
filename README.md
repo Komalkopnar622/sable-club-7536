@@ -2,7 +2,7 @@
 <img align="left" alt="Coding" width="153" src="Image/Onlinecab.jpg">
                                               
 
-we  have designed a nline  cab Booking Application Using Using java, SpringBoot, lombok and swagger-UI which has three main roles i.e. Admin and User. Admin is the primary user and can add/remove/update any details related to the system. Admin can manage registered users and drivers. Admin can Add/Remove/Update cab and their details from the system. Admin can also categorize taxis accordingly. Admin will be responsible for keeping a check on all the bookings done by users. Admin can View/Confirm/Cancel bookings done by users. Admin can check and manage the availability of cab and also, keep a track of the status of all the cab that are engaged.
+we  have designed a online  cab Booking Application Using Using java, SpringBoot, lombok and swagger-UI which has three main roles i.e. Admin and User. Admin is the primary user and can add/remove/update any details related to the system. Admin can manage registered users and drivers. Admin can Add/Remove/Update cab and their details from the system. Admin can also categorize taxis accordingly. Admin will be responsible for keeping a check on all the bookings done by users. Admin can View/Confirm/Cancel bookings done by users. Admin can check and manage the availability of cab and also, keep a track of the status of all the cab that are engaged.
 
 Admin can set/update prices and charges of the taxi rides. Admin can manage the drivers and their details.
 
