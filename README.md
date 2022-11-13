@@ -22,7 +22,7 @@ spring.datasource.url=jdbc:mysql://localhost:3306/project spring.datasource.driv
 
 API Root Endpoint https://localhost:9080/
 
--[http://localhost:9080/swagger-ui.html#/]
+-http://localhost:9080/swagger-ui.html#/
 
 ### This is a collaborative project, completed by a team of 5 backend developers at Masai School.
 
