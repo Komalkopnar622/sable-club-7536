@@ -69,13 +69,13 @@ public class CustomerServiceImple implements CustomerService {
 	}
 
 
-	@Override
-	public List<Customer> allCustomer() throws Nullexception {
-		List<Customer> c1  =cdao.findAll();
-		if(c1.size()==0)
-			throw new Nullexception("EMPTY NO DATA AVAILABLE");
-		return c1;
-	}
+//	@Override
+//	public List<Customer> allCustomer() throws Nullexception {
+//		List<Customer> c1=cdao.findAll();
+//		if(c1.size()==0)
+//			throw new Nullexception("EMPTY NO DATA AVAILABLE");
+//		return c1;
+//	}
 
 
 	@Override
@@ -88,6 +88,13 @@ public class CustomerServiceImple implements CustomerService {
 			     return c1.get(i);
 			}
 		 throw new InvalidId("Invalid Email and password");
+	}
+
+
+	@Override
+	public List<Customer> getAllCustomerDetails() throws Nullexception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
