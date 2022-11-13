@@ -14,7 +14,7 @@ public interface CustomerService {
 	public Customer findCustomer(Integer id)throws InvalidId;
 	public Customer updateCustomer(Customer customer,Integer id)throws InvalidId;
 	public String deleteCustomer(Integer id)throws InvalidId;
-	public List<Customer> allCustomer()throws Nullexception;
+	public List<Customer> getAllCustomerDetails()throws Nullexception;
 	public Customer vaildCustomer(String Email,String Password)throws InvalidId;
 	
 }
