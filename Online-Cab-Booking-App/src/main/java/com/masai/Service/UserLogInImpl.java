@@ -17,7 +17,8 @@ import com.masai.Exception.UserAlreadyExistWithuserId;
 import com.masai.Repository.AdminRepo;
 import com.masai.Repository.CustomerDao;
 import com.masai.Repository.DriverDao;
-import com.masai.Repository.SessionRepo;
+import com.masai.Repository.SessionDao;
+
 
 import net.bytebuddy.utility.RandomString;
 

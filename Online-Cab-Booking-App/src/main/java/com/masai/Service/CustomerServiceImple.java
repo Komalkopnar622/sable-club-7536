@@ -5,41 +5,40 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import com.masai.repository.AddressDao;
-import com.masai.repository.CustomerDao;
-import com.masai.entity.Address;
-import com.masai.entity.Customer;
-import com.masai.exception.InvalidId;
-import com.masai.exception.Nullexception;
 
-=======
+import com.masai.Repository.AddressDao;
+import com.masai.Repository.CustomerDao;
+import com.masai.Entity.Address;
+import com.masai.Entity.Customer;
+import com.masai.Exception.InvalidId;
+import com.masai.Exception.Nullexception;
+
+
 import com.masai.Entity.Customer;
 import com.masai.Exception.CustomerException;
 import com.masai.Exception.Nullexception;
 import com.masai.Repository.CustomerDao;
->>>>>>> 005e10d4ce93a296c1f0785ef48ed196e3bb538c
+
 
 @Service
 public class CustomerServiceImple implements CustomerService {
  
 	@Autowired
-<<<<<<< HEAD
+
 	private CustomerDao cdao;
     @Autowired
     private AddressDao Adao;
 	
-=======
+
 	private CustomerDao cRepo;
->>>>>>> 005e10d4ce93a296c1f0785ef48ed196e3bb538c
-	
+
 	@Override
     	public Customer saveCustomer(Customer customer) {
 		return cdao.save(customer);
 	}
 
 
-	@Override
+	@Override   
 	public Customer findCustomer(Integer id) throws InvalidId {
 	
 
@@ -80,14 +79,23 @@ public class CustomerServiceImple implements CustomerService {
 	}
 
 
-	@Override
-	public List<Customer> allCustomer() throws Nullexception {
-		List<Customer> c1  =cdao.findAll();
-		if(c1.size()==0)
-			throw new Nullexception("EMPTY NO DATA AVAILABLE");
-		return c1;
-	}
+//	@Override
+//	public List<Customer> allCustomer() throws Nullexception {
+//		List<Customer> c1  =cdao.findAll();
+//		if(c1.size()==0)
+//			throw new Nullexception("EMPTY NO DATA AVAILABLE");
+//		return c1;
+//	}
 
+	@Override
+	public List<Customer> getAllCustomerDetails() throws Nullexception {
+		List<Customer> customers = cdao.findAll();
+
+		if (customers.size() == 0)
+			throw new Nullexception("No Employees are there");
+		else
+			return customers;
+	}
 
 	@Override
 	public Customer vaildCustomer(String Email, String Password) throws InvalidId {
@@ -100,6 +108,9 @@ public class CustomerServiceImple implements CustomerService {
 			}
 		 throw new InvalidId("Invalid Email and password");
 	}
+
+
+	
 	
 
 }
