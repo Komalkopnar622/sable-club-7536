@@ -19,6 +19,7 @@ import com.masai.Repository.CustomerDao;
 import com.masai.Repository.DriverDao;
 import com.masai.Repository.SessionDao;
 
+
 import net.bytebuddy.utility.RandomString;
 
 @Service
@@ -27,22 +28,19 @@ public class UserLogInImpl implements UserLogIn {
 	private AdminRepo adminDao;
 
 	@Autowired
-
 	private DriverDao driverDao;
 
 	@Autowired
 	private CustomerDao customerDao;
 
 	@Autowired
-	private SessionDao sessionDao;
+	private SessionRepo sessionDao;
 
 	@Override
 	public String logIntoAccount(CustomerDTO userDto) {
 		Optional<Customer> opt_customer = customerDao.findById(userDto.getUserId());
-//		Optional<Driver> opt_driver = driverDao.findById(userDto.getUserId());
-//		Optional<Admin> opt_admin = adminDao.findById(userDto.getUserId());
 
-		Integer userId = opt_customer.get().getUserId();
+		Integer userId = opt_customer.get().getCustomerId();
 
 		Optional<CurrentUserSession> currentUserOptional = sessionDao.findById(userId);
 
@@ -54,7 +52,7 @@ public class UserLogInImpl implements UserLogIn {
 		}
 		if (opt_customer.get().getPassword().equals(userDto.getPassword())) {
 			String key = RandomString.make(6);
-			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getUserId(), key,
+			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getCustomerId(), key,
 					LocalDateTime.now());
 			sessionDao.save(currentUserSession);
 
