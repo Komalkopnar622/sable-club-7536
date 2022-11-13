@@ -12,6 +12,18 @@ Admin can maintain a database of drivers. Drivers have to register on the portal
 # Cab Booking Application ER diagram
 ![cab_booking_3](https://user-images.githubusercontent.com/68966858/185020617-92914a9c-b5e2-4b3b-aa36-dc6a26454cba.jpeg)
 
+# Installation & Run 🌱
+
+Before running the API server, you should update the database config inside the application.properties file.
+
+Update the port number, username and password as per your local database config. server.port=9080
+
+spring.datasource.url=jdbc:mysql://localhost:3306/project spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver spring.datasource.username=mysql username spring.datasource.password=YourPassword spring.jpa.hibernate.ddl-auto=update
+
+API Root Endpoint https://localhost:9080/
+
+-[http://localhost:9080/swagger-ui.html#/]
+
 ### This is a collaborative project, completed by a team of 5 backend developers at Masai School.
 
 ## Collaborators
@@ -31,6 +43,31 @@ Admin can maintain a database of drivers. Drivers have to register on the portal
 *	Cab Management Module - Komal
 *	Booking Management Module - Devaraj
 
-## Features
+# Features 🌱
+
+* User and Admin authentication & validation with session uuid.
+
+# Admin Features:
+
+* Administrator Role of the entire application
+* Only admins can add/update/delete Cab, Driver, Trip from main database
+* Admin can access the details of different users and orders.
+
+# Customer Features:
+
+* Can Log in/Log out of the system.
+* Can Manage “ profile”.
+* Can search for cab.
+* Users can Book/Cancel Cabs.
+* Can change password.
+
+# Driver we can:
+* Add a driver in the system.
+* Update driver details.
+* Delete a driver from the system.
+* Get the list of all drivers.
+* Get the list of all best available(rated>=4.5) drivers.
+
+
 
 
