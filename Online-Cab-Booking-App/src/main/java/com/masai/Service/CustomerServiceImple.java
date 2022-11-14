@@ -71,7 +71,6 @@ public class CustomerServiceImple implements CustomerService {
 	@Override
 	public List<Customer> getAllCustomerDetails() throws Nullexception {
 		List<Customer> customers = cdao.findAll();
-
 		if (customers.size() == 0)
 			throw new Nullexception("No Employees are there");
 		else
