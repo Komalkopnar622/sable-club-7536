@@ -5,18 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.masai.Repository.AddressDao;
-import com.masai.Repository.CustomerDao;
 import com.masai.Entity.Address;
 import com.masai.Entity.Customer;
 import com.masai.Exception.InvalidId;
 import com.masai.Exception.Nullexception;
-
-
-import com.masai.Entity.Customer;
-import com.masai.Exception.CustomerException;
-import com.masai.Exception.Nullexception;
+import com.masai.Repository.AddressDao;
 import com.masai.Repository.CustomerDao;
 
 
@@ -24,21 +17,18 @@ import com.masai.Repository.CustomerDao;
 public class CustomerServiceImple implements CustomerService {
  
 	@Autowired
-
 	private CustomerDao cdao;
     @Autowired
     private AddressDao Adao;
+
 	
-
-	private CustomerDao cRepo;
-
 	@Override
     	public Customer saveCustomer(Customer customer) {
 		return cdao.save(customer);
 	}
 
 
-	@Override   
+	@Override
 	public Customer findCustomer(Integer id) throws InvalidId {
 	
 
@@ -53,7 +43,7 @@ public class CustomerServiceImple implements CustomerService {
 		
 		Customer c1=cdao.findById(id).orElseThrow(() -> new InvalidId("Customer with ID "+id+" does not exit.."));
 		
-	Integer aid=	c1.getAddress().getId();
+	Integer aid=c1.getAddress().getId();
 		
 		c1.setAddress(customer.getAddress());
 		c1.setEmail(customer.getEmail());
@@ -81,21 +71,12 @@ public class CustomerServiceImple implements CustomerService {
 
 //	@Override
 //	public List<Customer> allCustomer() throws Nullexception {
-//		List<Customer> c1  =cdao.findAll();
+//		List<Customer> c1=cdao.findAll();
 //		if(c1.size()==0)
 //			throw new Nullexception("EMPTY NO DATA AVAILABLE");
 //		return c1;
 //	}
 
-	@Override
-	public List<Customer> getAllCustomerDetails() throws Nullexception {
-		List<Customer> customers = cdao.findAll();
-
-		if (customers.size() == 0)
-			throw new Nullexception("No Employees are there");
-		else
-			return customers;
-	}
 
 	@Override
 	public Customer vaildCustomer(String Email, String Password) throws InvalidId {
@@ -110,7 +91,11 @@ public class CustomerServiceImple implements CustomerService {
 	}
 
 
-	
+	@Override
+	public List<Customer> getAllCustomerDetails() throws Nullexception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

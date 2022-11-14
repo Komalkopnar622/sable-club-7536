@@ -55,7 +55,7 @@ public class TripServiceImpl implements TripService{
 		public TripBooking updateTrip(TripBooking tb,Integer id) throws InvalidId {
 			
 		
-			TripBooking c1=trip.getById(id);
+			TripBooking c1=trip.findById(id).get();
 			
 			c1.setCustomerId(tb.getCustomerId());
 			c1.setFrom_location(tb.getFrom_location());

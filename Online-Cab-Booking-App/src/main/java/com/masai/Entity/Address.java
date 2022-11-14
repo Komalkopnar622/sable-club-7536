@@ -27,4 +27,9 @@ public class Address {
 	private String state;
 	
 	private String pincode;
+
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

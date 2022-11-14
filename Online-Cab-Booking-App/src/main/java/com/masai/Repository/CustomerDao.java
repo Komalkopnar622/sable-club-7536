@@ -6,10 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.masai.Entity.Customer;
 
 @Repository
+public interface CustomerDao extends JpaRepository<Customer,Integer>{
 
-
-public interface CustomerDao extends JpaRepository<Customer, Integer>{
-
-
-	
 }

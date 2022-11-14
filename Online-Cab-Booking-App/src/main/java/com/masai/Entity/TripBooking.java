@@ -28,7 +28,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class TripBooking {
 	
-	 @Id
+	   @Id
 	   @GeneratedValue(strategy = GenerationType.AUTO)
 	   private Integer TripBookingId;
 	   @NonNull

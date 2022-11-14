@@ -2,6 +2,7 @@ package com.masai.Service;
 
 import java.time.LocalDateTime;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,6 @@ import com.masai.Repository.AdminRepo;
 import com.masai.Repository.CustomerDao;
 import com.masai.Repository.DriverDao;
 import com.masai.Repository.SessionDao;
-
-
 import net.bytebuddy.utility.RandomString;
 
 @Service
@@ -34,13 +33,13 @@ public class UserLogInImpl implements UserLogIn {
 	private CustomerDao customerDao;
 
 	@Autowired
-	private SessionRepo sessionDao;
+	private SessionDao sessionDao;
 
 	@Override
 	public String logIntoAccount(CustomerDTO userDto) {
 		Optional<Customer> opt_customer = customerDao.findById(userDto.getUserId());
 
-		Integer userId = opt_customer.get().getCustomerId();
+		Integer userId = opt_customer.get().getUserId();
 
 		Optional<CurrentUserSession> currentUserOptional = sessionDao.findById(userId);
 
@@ -52,7 +51,7 @@ public class UserLogInImpl implements UserLogIn {
 		}
 		if (opt_customer.get().getPassword().equals(userDto.getPassword())) {
 			String key = RandomString.make(6);
-			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getCustomerId(), key,
+			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getUserId(), key,
 					LocalDateTime.now());
 			sessionDao.save(currentUserSession);
 
