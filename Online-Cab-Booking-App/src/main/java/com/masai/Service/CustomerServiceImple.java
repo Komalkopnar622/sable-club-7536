@@ -67,12 +67,10 @@ public class CustomerServiceImple implements CustomerService {
 		
 		return "delete...";
 	}
-
-
+	
 	@Override
 	public List<Customer> getAllCustomerDetails() throws Nullexception {
 		List<Customer> customers = cdao.findAll();
-
 		if (customers.size() == 0)
 			throw new Nullexception("No Employees are there");
 		else
@@ -90,13 +88,6 @@ public class CustomerServiceImple implements CustomerService {
 			     return c1.get(i);
 			}
 		 throw new InvalidId("Invalid Email and password");
-	}
-
-
-	@Override
-	public List<Customer> getAllCustomerDetails() throws Nullexception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 
