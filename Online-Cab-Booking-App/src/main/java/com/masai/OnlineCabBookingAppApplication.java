@@ -25,6 +25,5 @@ public class OnlineCabBookingAppApplication {
 	    		  .paths(PathSelectors.any())
 	    		  .build();
 	   }
-	
 
 }
